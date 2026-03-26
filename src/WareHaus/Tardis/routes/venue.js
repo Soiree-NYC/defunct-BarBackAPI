@@ -11,10 +11,15 @@ const {
   Space,
 } = require('../models');
 const sequelize = require('../models/index');
+const mockVenues = require('../mocks/venues');
 
 router.get('/', async (req, res) => {
   const venues = await Venue.findAll();
   res.json(venues);
+});
+
+router.get('/mock', (req, res) => {
+  res.json(mockVenues);
 });
 
 router.get('/:id', async (req, res) => {
